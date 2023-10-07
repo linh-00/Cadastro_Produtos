@@ -17,6 +17,7 @@ namespace CadastroProdutos.Migrations
                     Quantidade = table.Column<int>(type: "INTEGER", nullable: false),
                     DataCadastro = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Descricao = table.Column<string>(type:"TEXT",nullable:true),
+                    Valor = table.Column<decimal>(type:"DECIMAL", nullable:false)
                 },
                 constraints: table =>
                 {

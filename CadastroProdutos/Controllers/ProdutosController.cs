@@ -40,6 +40,8 @@ namespace CadastroProdutos.CadastroProdutosController
                 ? NotFound()
                 : Ok(produto);
         }
+
+         
         [HttpPost("produtos")]
         public async Task<IActionResult> PostAsync(
             [FromServices] AppDbContext context,
@@ -51,7 +53,6 @@ namespace CadastroProdutos.CadastroProdutosController
             var produto = new Produto
             {
                 DataCadastro = DateTime.Now,
-                Nome = model.Nome,
                 Quantidade = model.Quantidade,
                 Descricao = model.Descricao,
             };
@@ -73,6 +74,7 @@ namespace CadastroProdutos.CadastroProdutosController
             [FromServices] AppDbContext context,
             [FromBody] CreateProdutoViewModel model,
             [FromRoute] int id)
+
         {
             if (!ModelState.IsValid)
                 return BadRequest();
@@ -86,7 +88,6 @@ namespace CadastroProdutos.CadastroProdutosController
 
             try
             {
-                produto.Nome = model.Nome;
                 produto.Quantidade = model.Quantidade;
                 produto.Descricao = model.Descricao;
 
@@ -98,9 +99,9 @@ namespace CadastroProdutos.CadastroProdutosController
             {
                 return BadRequest();
             }
-
-
         }
+
+       
         [HttpDelete("produtos/{id}")]
         public async Task<IActionResult> DeleteAsync(
             [FromServices] AppDbContext context,

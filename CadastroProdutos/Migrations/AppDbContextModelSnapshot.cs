@@ -34,6 +34,10 @@ namespace CadastroProdutos.Migrations
                     b.Property<string>("Descricao")
                         .HasColumnType("TEXT");
 
+                    b.Property<decimal>("Valor")
+                       .HasColumnType("DECIMAL(18, 2)");
+
+
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
